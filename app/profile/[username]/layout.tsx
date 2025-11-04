@@ -1,7 +1,7 @@
 // app/profile/[username]/layout.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Github, ArrowLeft } from 'lucide-react';
 import ThemeToggle from '@/components/ThemeToggle';
@@ -14,9 +14,10 @@ export default function ProfileLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { username: string };
+  params: Promise<{ username: string }>;
 }) {
   const router = useRouter();
+  const resolvedParams = use(params);
   const [user, setUser] = useState<GitHubUser | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -28,7 +29,7 @@ export default function ProfileLayout({
         setError(null);
         
         const response = await fetch(
-          `/api/github?username=${params.username}&type=user`
+          `/api/github?username=${resolvedParams.username}&type=user`
         );
 
         if (!response.ok) {
@@ -47,7 +48,7 @@ export default function ProfileLayout({
     }
 
     fetchUser();
-  }, [params.username]);
+  }, [resolvedParams.username]);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors">
@@ -116,7 +117,7 @@ export default function ProfileLayout({
               <ProfileHeader user={user} />
 
               {/* Tab Navigation */}
-              <TabNavigation username={params.username} />
+              <TabNavigation username={resolvedParams.username} />
 
               {/* Tab Content */}
               {children}

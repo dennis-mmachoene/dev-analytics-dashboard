@@ -157,6 +157,9 @@ export default function Home() {
             <p className="mt-2">
               Powered by GitHub REST API
             </p>
+            <p>
+              Dennis Mmachoene Ramara &copy; {new Date().getFullYear()}
+            </p>
           </div>
         </footer>
       </div>

@@ -1,7 +1,7 @@
 // app/profile/[username]/page.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { TrendingUp, Lightbulb } from 'lucide-react';
 import StatsCards from '@/components/StatsCards';
 import LanguagesDonut from '@/components/charts/LanguagesDonut';
@@ -9,7 +9,8 @@ import CommitsLineChart from '@/components/charts/CommitsLineChart';
 import GlassCard from '@/components/ui/GlassCard';
 import Loading from '@/components/Loading';
 
-export default function OverviewPage({ params }: { params: { username: string } }) {
+export default function OverviewPage({ params }: { params: Promise<{ username: string }> }) {
+  const resolvedParams = use(params);
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -21,7 +22,7 @@ export default function OverviewPage({ params }: { params: { username: string } 
         setError(null);
 
         const response = await fetch(
-          `/api/github?username=${params.username}&type=analytics&days=90`
+          `/api/github?username=${resolvedParams.username}&type=analytics&days=90`
         );
 
         if (!response.ok) {
@@ -40,7 +41,7 @@ export default function OverviewPage({ params }: { params: { username: string } 
     }
 
     fetchAnalytics();
-  }, [params.username]);
+  }, [resolvedParams.username]);
 
   if (loading) {
     return <Loading message="Loading analytics..." />;

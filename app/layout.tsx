@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Dev Analytics Dashboard | GitHub Portfolio Analytics',
   description: 'Analyze GitHub developer profiles with detailed insights into coding activity, language usage, and contribution patterns.',
   keywords: ['github', 'analytics', 'developer', 'portfolio', 'statistics'],
-  authors: [{ name: 'Your Name' }],
+  authors: [{ name: 'Dennis Mmachoene Ramara' }],
   openGraph: {
     title: 'Dev Analytics Dashboard',
     description: 'Analyze any GitHub developer profile',
@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         {children}
       </body>
     </html>

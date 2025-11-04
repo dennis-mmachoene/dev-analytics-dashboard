@@ -1,13 +1,14 @@
 // app/profile/[username]/repositories/page.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { Star, GitFork, Eye, ExternalLink } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
 import Loading from '@/components/Loading';
 import { GitHubRepo } from '@/types/github';
 
-export default function RepositoriesPage({ params }: { params: { username: string } }) {
+export default function RepositoriesPage({ params }: { params: Promise<{ username: string }> }) {
+  const resolvedParams = use(params);
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,7 +21,7 @@ export default function RepositoriesPage({ params }: { params: { username: strin
         setError(null);
 
         const response = await fetch(
-          `/api/github?username=${params.username}&type=repos`
+          `/api/github?username=${resolvedParams.username}&type=repos`
         );
 
         if (!response.ok) {
@@ -39,7 +40,7 @@ export default function RepositoriesPage({ params }: { params: { username: strin
     }
 
     fetchRepos();
-  }, [params.username]);
+  }, [resolvedParams.username]);
 
   if (loading) {
     return <Loading message="Loading repositories..." />;

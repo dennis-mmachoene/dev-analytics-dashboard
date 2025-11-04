@@ -1,13 +1,14 @@
 // app/profile/[username]/languages/page.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import LanguagesDonut from '@/components/charts/LanguagesDonut';
 import GlassCard from '@/components/ui/GlassCard';
 import Loading from '@/components/Loading';
 import { LanguageData } from '@/types/github';
 
-export default function LanguagesPage({ params }: { params: { username: string } }) {
+export default function LanguagesPage({ params }: { params: Promise<{ username: string }> }) {
+  const resolvedParams = use(params);
   const [languages, setLanguages] = useState<LanguageData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -19,7 +20,7 @@ export default function LanguagesPage({ params }: { params: { username: string }
         setError(null);
 
         const response = await fetch(
-          `/api/github?username=${params.username}&type=languages`
+          `/api/github?username=${resolvedParams.username}&type=languages`
         );
 
         if (!response.ok) {
@@ -38,7 +39,7 @@ export default function LanguagesPage({ params }: { params: { username: string }
     }
 
     fetchLanguages();
-  }, [params.username]);
+  }, [resolvedParams.username]);
 
   if (loading) {
     return <Loading message="Loading languages..." />;
