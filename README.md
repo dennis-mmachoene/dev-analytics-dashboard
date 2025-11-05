@@ -2,7 +2,12 @@
 
 **Developer Portfolio Analytics Dashboard** built with Next.js 16, TypeScript, Tailwind CSS, and Recharts. Analyze any GitHub developer's profile with detailed insights into coding activity, language usage, and contribution patterns.
 
+[![Live Demo](https://img.shields.io/badge/Live%20App-Visit-blue?style=for-the-badge)](https://dev-analytics-dashboard-dk1z.vercel.app/)
+
+
 ![Landing Page](./public/demo/landing_page.png)
+
+
 ![Dev Analytics Dashboard](./public/demo/search.PNG)
 
 ## Features
