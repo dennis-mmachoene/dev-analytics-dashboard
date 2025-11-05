@@ -1,5 +1,4 @@
 // lib/github.ts
-
 import axios from 'axios';
 import { GitHubUser, GitHubRepo, GitHubLanguages, GitHubCommit, APIResponse } from '@/types/github';
 
