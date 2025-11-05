@@ -1,20 +1,20 @@
-# 🚀 Dev Analytics Dashboard
+# Dev Analytics Dashboard
 
-A production-ready, portfolio-worthy **Developer Portfolio Analytics Dashboard** built with Next.js 14, TypeScript, Tailwind CSS, and Recharts. Analyze any GitHub developer's profile with detailed insights into coding activity, language usage, and contribution patterns.
+**Developer Portfolio Analytics Dashboard** built with Next.js 16, TypeScript, Tailwind CSS, and Recharts. Analyze any GitHub developer's profile with detailed insights into coding activity, language usage, and contribution patterns.
 
-![Dev Analytics Dashboard](https://via.placeholder.com/1200x600/7c3aed/ffffff?text=Dev+Analytics+Dashboard)
+![Landing Page](./public/demo/landing_page.png)
+![Dev Analytics Dashboard](./public/demo/search.PNG)
 
-## ✨ Features
+## Features
 
 - **Real GitHub Data Integration** - Fetches live data from GitHub REST API
 - **Interactive Visualizations** - Beautiful charts using Recharts
 - **Four Analytics Views**:
-  - 📊 Overview - Key stats, top languages, and repositories
-  - 💻 Languages - Detailed language distribution and statistics
-  - 📈 Activity - Commit timelines and repository activity
-  - 📁 Repositories - Sortable repository list with details
+  - Overview - Key stats, top languages, and repositories
+  - Languages - Detailed language distribution and statistics
+  - Activity - Commit timelines and repository activity
+  - Repositories - Sortable repository list with details
 - **Modern UI/UX** - Glassmorphism design with smooth animations
-- **Dark/Light Theme** - Toggle with localStorage persistence
 - **Responsive Design** - Mobile-first, works on all devices
 - **Server-Side Caching** - Optimized performance with smart caching
 - **Rate Limit Handling** - Graceful handling of GitHub API limits
@@ -22,7 +22,7 @@ A production-ready, portfolio-worthy **Developer Portfolio Analytics Dashboard**
 - **Tested** - Unit tests with Jest
 - **CI/CD Ready** - GitHub Actions workflow included
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Framework**: Next.js 16 (App Router)
 - **Language**: TypeScript
@@ -34,18 +34,18 @@ A production-ready, portfolio-worthy **Developer Portfolio Analytics Dashboard**
 - **CI/CD**: GitHub Actions
 - **Deployment**: Vercel (recommended)
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Node.js 18.x or higher
 - npm or pnpm
 - GitHub account (for PAT - optional but recommended)
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/dev-analytics-dashboard.git
+git clone https://github.com/dennis-mmachoene/dev-analytics-dashboard.git
 cd dev-analytics-dashboard
 ```
 
@@ -82,7 +82,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 🔑 GitHub Personal Access Token (PAT)
+## GitHub Personal Access Token (PAT)
 
 To avoid GitHub API rate limits, create a Personal Access Token:
 
@@ -92,15 +92,15 @@ To avoid GitHub API rate limits, create a Personal Access Token:
 2. Click **"Generate new token (classic)"**
 3. Give it a descriptive name (e.g., "Dev Analytics Dashboard")
 4. Select scopes:
-   - ✅ `public_repo` (for public repositories only)
-   - ✅ `repo` (if you want to access private repositories)
+   - `public_repo` (for public repositories only)
+   - `repo` (if you want to access private repositories)
 5. Click **"Generate token"**
 6. Copy the token and add it to your `.env.local` file
 
 **Without a PAT**: 60 requests per hour per IP address
 **With a PAT**: 5,000 requests per hour
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 dev-analytics-dashboard/
@@ -146,14 +146,14 @@ dev-analytics-dashboard/
 └── README.md                        # This file
 ```
 
-## 📦 Building for Production
+## Building for Production
 
 ```bash
 npm run build
 npm start
 ```
 
-## 🚢 Deployment
+## Deployment
 
 ### Deploy to Vercel (Recommended)
 
@@ -181,7 +181,7 @@ The app can be deployed to any platform that supports Next.js:
 - **AWS Amplify**: Deploy from your repository
 - **Self-hosted**: Use Docker or PM2
 
-## 📊 API Rate Limits
+## API Rate Limits
 
 ### Without GitHub PAT
 - 60 requests/hour per IP
@@ -196,7 +196,7 @@ The app implements smart caching to minimize API calls:
 - Repositories: cached for 1 hour
 - Analytics data: cached for 1 hour
 
-## 🎨 Customization
+## Customization
 
 ### Theme Colors
 
@@ -221,7 +221,7 @@ Modify `lib/analytics.ts` to add custom analytics logic.
 
 Add new endpoints in `app/api/github/route.ts`.
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Rate Limit Errors
 
@@ -244,11 +244,11 @@ Add new endpoints in `app/api/github/route.ts`.
 - Verify your internet connection
 - Check browser console for errors
 
-## 📝 License
+## License
 
 MIT License - feel free to use this project for your portfolio!
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please:
 
@@ -258,11 +258,11 @@ Contributions are welcome! Please:
 4. Add tests
 5. Submit a pull request
 
-## 📧 Contact
+## Contact
 
 Questions or feedback? Open an issue on GitHub!
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - GitHub REST API for data
 - Recharts for beautiful visualizations

@@ -1,0 +1,74 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main circle background -->
+  <circle cx="100" cy="100" r="95" fill="url(#bgGradient)"/>
+  
+  <!-- GitHub octocat silhouette (simplified) -->
+  <g opacity="0.15">
+    <circle cx="100" cy="75" r="22" fill="white"/>
+    <path d="M 78 100 Q 78 95 85 95 L 115 95 Q 122 95 122 100 L 122 125 Q 122 130 115 130 L 85 130 Q 78 130 78 125 Z" fill="white"/>
+    <rect x="82" y="108" width="6" height="15" fill="white"/>
+    <rect x="112" y="108" width="6" height="15" fill="white"/>
+    <rect x="92" y="125" width="4" height="10" fill="white"/>
+    <rect x="104" y="125" width="4" height="10" fill="white"/>
+  </g>
+  
+  <!-- Analytics dashboard chart -->
+  <g transform="translate(50, 50)">
+    <!-- Chart frame -->
+    <rect x="10" y="25" width="80" height="70" fill="none" stroke="white" stroke-width="2" rx="4"/>
+    
+    <!-- Y-axis -->
+    <line x1="10" y1="25" x2="10" y2="95" stroke="white" stroke-width="1.5" opacity="0.6"/>
+    
+    <!-- X-axis -->
+    <line x1="10" y1="95" x2="90" y2="95" stroke="white" stroke-width="1.5" opacity="0.6"/>
+    
+    <!-- Bar chart columns with gradient -->
+    <g>
+      <!-- Bar 1 -->
+      <rect x="20" y="70" width="12" height="25" fill="url(#accentGradient)" rx="2"/>
+      <!-- Bar 2 -->
+      <rect x="35" y="55" width="12" height="40" fill="url(#accentGradient)" rx="2" opacity="0.85"/>
+      <!-- Bar 3 -->
+      <rect x="50" y="40" width="12" height="55" fill="url(#accentGradient)" rx="2"/>
+      <!-- Bar 4 -->
+      <rect x="65" y="50" width="12" height="45" fill="url(#accentGradient)" rx="2" opacity="0.75"/>
+    </g>
+    
+    <!-- Data points line -->
+    <polyline points="26,70 41,55 56,40 71,50" fill="none" stroke="#f5576c" stroke-width="2" opacity="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Data point circles -->
+    <circle cx="26" cy="70" r="2.5" fill="white"/>
+    <circle cx="41" cy="55" r="2.5" fill="white"/>
+    <circle cx="56" cy="40" r="2.5" fill="white"/>
+    <circle cx="71" cy="50" r="2.5" fill="white"/>
+  </g>
+  
+  <!-- Code brackets symbol (top right) -->
+  <g transform="translate(120, 60)">
+    <!-- Left bracket -->
+    <path d="M 15 5 L 5 15 L 15 25" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Right bracket -->
+    <path d="M 5 5 L 15 15 L 5 25" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Pulse/Activity indicator (bottom right) -->
+  <g transform="translate(130, 135)">
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#f5576c" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="0" cy="0" r="5" fill="none" stroke="#f5576c" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="0" cy="0" r="2.5" fill="#f5576c"/>
+  </g>
+</svg>

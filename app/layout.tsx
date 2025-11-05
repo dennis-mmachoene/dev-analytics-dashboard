@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   description: 'Analyze GitHub developer profiles with detailed insights into coding activity, language usage, and contribution patterns.',
   keywords: ['github', 'analytics', 'developer', 'portfolio', 'statistics'],
   authors: [{ name: 'Dennis Mmachoene Ramara' }],
+  icons:{
+    icon: '/icon.svg',
+  },
   openGraph: {
     title: 'Dev Analytics Dashboard',
     description: 'Analyze any GitHub developer profile',

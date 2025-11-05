@@ -62,7 +62,6 @@ export default function Home() {
                 Dev Analytics
               </h1>
             </div>
-            <ThemeToggle />
           </div>
         </header>
 
@@ -158,7 +157,7 @@ export default function Home() {
               Powered by GitHub REST API
             </p>
             <p>
-              Dennis Mmachoene Ramara &copy; {new Date().getFullYear()}
+              Dennis Mmachoene Ramara @ {new Date().getFullYear()}
             </p>
           </div>
         </footer>
