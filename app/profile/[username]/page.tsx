@@ -31,6 +31,8 @@ export default function OverviewPage({ params }: { params: Promise<{ username: s
         }
 
         const result = await response.json();
+        console.log('Analytics data received:', result);
+        console.log('Commits structure:', result.data?.commits);
         setData(result.data);
       } catch (err: any) {
         console.error('Error fetching analytics:', err);
@@ -63,10 +65,10 @@ export default function OverviewPage({ params }: { params: Promise<{ username: s
     <div className="space-y-6">
       {/* Stats Cards */}
       <StatsCards
-        totalStars={data.stats.totalStars}
-        totalForks={data.stats.totalForks}
-        totalRepos={data.stats.totalRepos}
-        totalCommits={data.stats.totalCommits}
+        totalStars={data.stats?.totalStars || 0}
+        totalForks={data.stats?.totalForks || 0}
+        totalRepos={data.stats?.totalRepos || 0}
+        totalCommits={data.stats?.totalCommits || 0}
       />
 
       {/* Insights */}
@@ -130,17 +132,17 @@ export default function OverviewPage({ params }: { params: Promise<{ username: s
         )}
 
         {/* Recent Activity */}
-        {data.commits && data.commits.timeseries && (
+        {data.commits && (data.commits.timeseries || data.commits.length > 0) && (
           <GlassCard>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">
               Commit Activity (90 days)
             </h3>
-            <CommitsLineChart data={data.commits.timeseries} />
+            <CommitsLineChart data={data.commits.timeseries || data.commits} />
             <div className="mt-4 text-center">
               <p className="text-sm text-slate-600 dark:text-slate-400">
                 Total commits:{' '}
                 <span className="font-semibold text-slate-900 dark:text-white">
-                  {data.commits.total.toLocaleString()}
+                  {(data.commits.totalCommits || data.commits.total || 0).toLocaleString()}
                 </span>
               </p>
             </div>
@@ -149,7 +151,7 @@ export default function OverviewPage({ params }: { params: Promise<{ username: s
       </div>
 
       {/* Top Repositories */}
-      {data.repos && data.repos.length > 0 && (
+      {data.repos && Array.isArray(data.repos) && data.repos.length > 0 && (
         <GlassCard>
           <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">
             Top Repositories
@@ -178,8 +180,8 @@ export default function OverviewPage({ params }: { params: Promise<{ username: s
                       {repo.language}
                     </span>
                   )}
-                  <span>⭐ {repo.stargazers_count}</span>
-                  <span>🍴 {repo.forks_count}</span>
+                  <span>⭐ {repo.stargazers_count || 0}</span>
+                  <span>🍴 {repo.forks_count || 0}</span>
                 </div>
               </a>
             ))}
